@@ -1,22 +1,20 @@
 package com.kodilla.testing.shape;
-/*
+
 public class Circle implements Shape {
     private int pi;
     private int r;
-    private int shapeName;
-    int field = pi * r * r;
+    int field;
 
-    public Circle(int pi, int r, int shapeName) {
+    public Circle(int pi, int r) {
         this.pi = pi;
         this.r = r;
-        this.shapeName = shapeName;
+        field = pi * r * r;
     }
 
     public String getShapeName() {
-        return shapeName;
+        return "circle";
     }
     public int getField() {
         return field;
     }
 }
-*/

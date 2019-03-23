@@ -3,16 +3,15 @@ package com.kodilla.testing.shape;
 public class Square implements Shape {
 
     private int a;
-    private String shapeName;
-    int field = a * a;
+    int field;
 
-    public Square(int a, String shapeName) {
+    public Square(int a) {
         this.a = a;
-        this.shapeName = shapeName;
+        field = a * a;
     }
 
     public String getShapeName() {
-        return shapeName;
+        return "square";
     }
     public int getField() {
         return field;

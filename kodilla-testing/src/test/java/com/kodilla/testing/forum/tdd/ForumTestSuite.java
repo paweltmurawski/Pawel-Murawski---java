@@ -1,3 +1,4 @@
+/*
 package com.kodilla.testing.forum.tdd;
 
 import com.kodilla.testing.forum.ForumComment;
@@ -154,6 +155,6 @@ public class ForumTestSuite {
 
 }
 
-
+*/
 
 
