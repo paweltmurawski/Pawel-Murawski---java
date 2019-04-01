@@ -11,6 +11,7 @@ import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.com.kodilla.stream.reference.FunctionalCalculator;
 import com.kodilla.stream.person.People;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -30,11 +31,7 @@ public class StreamMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
-/*
-        System.out.println("7.1 task");
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify()
-*/
+
 
         System.out.println("Using Stream to generate even numbers from 1 to 20");
         NumbersGenerator.generateEven(20);
@@ -47,14 +44,9 @@ public class StreamMain {
 
         System.out.println(theResultStringOfBooks);
 
-        Forum theForum = new Forum();
-        theForum.getUserList().stream()
-                .filter(forumUser -> forumUser.getSex() == 'F')
-
-                .filter(forumUser -> forumUser.getNumberOfPosts() > 0)
-                .forEach(System.out::println);
 
 
+//7.1
         PoemBeautifier poemBeautifier = new PoemBeautifier();
         poemBeautifier.beautify("Some nice text", (textToBeautify) -> textToBeautify.toUpperCase());
         poemBeautifier.beautify("Some nice text", (textToBeautify) -> "ABC" + textToBeautify + "ABC");
@@ -69,5 +61,19 @@ public class StreamMain {
                 .map(entry -> entry.getKey() + ": " + entry.getValue())
                 .forEach(System.out::println);
 */
+
+//7.3
+
+        Forum theForum = new Forum();
+        Map<Integer, ForumUser> theResultListOfForumUsers = theForum.getUserList().stream()
+                .filter(forumUser -> forumUser.getSex() == 'F')
+               .filter(forumUser -> LocalDate.now().minusYears(20).isAfter(forumUser.getDateOfBirth()))
+                .filter(forumUser -> forumUser.getNumberOfPosts() == 0)
+                .collect(Collectors.toMap(ForumUser::getId, forumUser -> forumUser));
+
+                        theResultListOfForumUsers.entrySet().stream()
+                                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                                .forEach(System.out::println);
+
     }
 }
