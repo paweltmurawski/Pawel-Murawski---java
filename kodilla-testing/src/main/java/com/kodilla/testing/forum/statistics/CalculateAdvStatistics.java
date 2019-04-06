@@ -18,9 +18,14 @@ public class CalculateAdvStatistics {
         numberOfPosts = statistics.postsCount();
         numberOfComments = statistics.commentsCount();
 
-        averagePostsPerUser = numberOfPosts / numberOfUsers;
-        averageNumberOfCommentsPerUser = numberOfComments / numberOfUsers;
-        averageNumberOfCommentsPerPost = numberOfComments / numberOfPosts;
+        if(numberOfUsers != 0) {
+            averagePostsPerUser = numberOfPosts / (double) numberOfUsers;
+            averageNumberOfCommentsPerUser = numberOfComments / (double) numberOfUsers;
+        }
+
+        if(numberOfPosts != 0) {
+            averageNumberOfCommentsPerPost = numberOfComments / (double) numberOfPosts;
+        }
     }
 
     public int postsCount() {
