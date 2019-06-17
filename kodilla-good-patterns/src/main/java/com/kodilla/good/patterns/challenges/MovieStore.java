@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
 
 public class MovieStore {
     public Map<String, List<String>> getMovies() {
@@ -25,6 +27,20 @@ public class MovieStore {
         booksTitlesWithTranslations.put("AV", avengersTranslations);
         booksTitlesWithTranslations.put("FL", flashTranslations);
 
-        return booksTitlesWithTranslations;
+
+
+                System.out.println(booksTitlesWithTranslations.entrySet().stream()
+                .flatMap(e -> e.getValue().stream())
+                        .map(Object::toString)
+                .collect(Collectors.joining(", ")));
+
+
+                return booksTitlesWithTranslations;
     }
+
+    public static void main(String[] args) {
+        MovieStore movie = new MovieStore();
+        movie.getMovies();
+    }
+
 }
