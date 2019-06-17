@@ -12,7 +12,5 @@ public class AverageNumbers implements ArrayOperations {
         return IntStream.range(0, numbers.length)
                 .map(e -> numbers[e])
                 .average().getAsDouble();
-
     }
-
 }

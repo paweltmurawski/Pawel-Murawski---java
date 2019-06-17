@@ -15,5 +15,4 @@ public class ArrayOperationsTestSuite {
         //Then
         assertEquals(10.5, averageResult, 0);
     }
-
 }
