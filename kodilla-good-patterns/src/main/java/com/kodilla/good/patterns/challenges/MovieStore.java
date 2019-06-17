@@ -34,7 +34,6 @@ public class MovieStore {
                         .map(Object::toString)
                 .collect(Collectors.joining(", ")));
 
-
                 return booksTitlesWithTranslations;
     }
 
