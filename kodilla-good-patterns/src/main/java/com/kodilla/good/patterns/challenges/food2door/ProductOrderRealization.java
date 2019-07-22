@@ -10,7 +10,7 @@ public class ProductOrderRealization {
     }
 
     public void realizationProcess(ProductOrderInformation productOrderInformation) {
-        String processInformation = productOrderInformation.getProducer().process();
+        productOrderInformation.getProducer().process();
        boolean isOrderRealized = informClient.clientInform(productOrderInformation);
        if(isOrderRealized) {
            productRepository.createProductRepository(productOrderInformation.getProducer(), productOrderInformation.getProduct(), productOrderInformation.getDateOfRealization());
