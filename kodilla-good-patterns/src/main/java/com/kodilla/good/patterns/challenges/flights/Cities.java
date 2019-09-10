@@ -19,6 +19,11 @@ public class Cities {
     }
 
     @Override
+    public String toString() {
+        return "Flight from " + cityFrom + " to " + cityTo;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
