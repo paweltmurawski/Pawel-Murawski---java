@@ -17,6 +17,7 @@ public class Application {
         System.out.println(flightsTo.get(0));
         System.out.println();
         System.out.println(flightsThrough.size());
+        System.out.println(flightsThrough);
     }
 }
 
