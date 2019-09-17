@@ -37,8 +37,6 @@ public class Flights {
               .filter(e -> e.getCityTo().equals(flightsThrough))
               .collect(Collectors.toList());
 
-      System.out.println(flightsStartPoint);
-
         List<Cities> flightsEndPoint = listOfFlights.stream()
                 .filter(e -> e.getCityTo().equals(flightsTo))
                 .filter(e -> e.getCityFrom().equals(flightsThrough))
