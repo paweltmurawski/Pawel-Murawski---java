@@ -4,6 +4,7 @@ public class Cities {
     private String cityFrom;
     private String cityTo;
 
+
     public Cities(String cityFrom, String cityTo) {
         this.cityFrom = cityFrom;
         this.cityTo = cityTo;

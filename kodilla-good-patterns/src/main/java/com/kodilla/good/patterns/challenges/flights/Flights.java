@@ -17,50 +17,37 @@ public class Flights {
         return listOfFlights;
     }
 
-    public List<Cities> fligthsSearcherFrom(String cityFrom, List<Cities> listOfFlights) {
+    public List<Cities> fligthsSearcherFrom(String flightsFrom, List<Cities> listOfFlights) {
         List<Cities> startCities = listOfFlights.stream()
-                .filter(e -> e.getCityFrom().equals(cityFrom))
+                .filter(e -> e.getCityFrom().equals(flightsFrom))
                 .collect(Collectors.toList());
         return startCities;
     }
 
-    public List<Cities> fligthsSearcherTo(String cityTo, List<Cities> listOfFlights) {
+    public List<Cities> fligthsSearcherTo(String flightsTo, List<Cities> listOfFlights) {
         List<Cities> endCities = listOfFlights.stream()
-                .filter(e -> e.getCityTo().equals(cityTo))
+                .filter(e -> e.getCityTo().equals(flightsTo))
                 .collect(Collectors.toList());
         return endCities;
     }
 
-    public List<Cities> fligthsSearcherThrough(String cityFrom, String cityThrough, String cityTo, List<Cities> listOfFlights) {
-        List<Cities> flightsFrom = listOfFlights.stream()
-                .filter(e -> e.getCityFrom().equals(cityFrom))
+    public List<Cities> fligthsSearcherThrough(String flightsFrom, String flightsThrough, String flightsTo, List<Cities> listOfFlights) {
+      List<Cities> flightsStartPoint = listOfFlights.stream()
+              .filter(e -> e.getCityFrom().equals(flightsFrom))
+              .filter(e -> e.getCityTo().equals(flightsThrough))
+              .collect(Collectors.toList());
+
+      System.out.println(flightsStartPoint);
+
+        List<Cities> flightsEndPoint = listOfFlights.stream()
+                .filter(e -> e.getCityTo().equals(flightsTo))
+                .filter(e -> e.getCityFrom().equals(flightsThrough))
                 .collect(Collectors.toList());
 
-        List<Cities> flightsTo = listOfFlights.stream()
-                .filter(e -> e.getCityTo().equals(cityTo))
-                .collect(Collectors.toList());
+        List<Cities> throughFlights = new ArrayList<>();
+        throughFlights.addAll(flightsStartPoint);
+        throughFlights.addAll(flightsEndPoint);
 
-        //List<Cities> commonList = new ArrayList<>();
-        //for (Cities common : flightsThrough) {
-         ///   if (flightsTo.contains(common)) {
-          //      commonList.add(common);
-          //  }
-        //}
-       //// return commonList;
-    //}
-
-       // List<Cities> commonList = new ArrayList<>(flightsTo);
-        //if(flightsTo.contains(flightsFrom)) {
-          //  commonList.addAll(flightsTo);
-       // }
-        //commonList.retainAll(flightsTo);
-
-        //return commonList;
-
-        List<Cities> commonListOfFlights = flightsTo.stream()
-                .filter(flightsFrom::contains)
-                .collect(Collectors.toList());
-
-        return commonListOfFlights;
+        return throughFlights;
    }
 }

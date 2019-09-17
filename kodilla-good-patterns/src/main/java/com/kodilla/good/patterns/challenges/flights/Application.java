@@ -8,7 +8,7 @@ public class Application {
         List<Cities> listOfFlights = flights.flightsListCreator();
         List<Cities> flightsFrom = flights.fligthsSearcherFrom("Warszawa", listOfFlights);
         List<Cities> flightsTo = flights.fligthsSearcherTo("Waszyngton", listOfFlights);
-        List<Cities> flightsThrough = flights.fligthsSearcherThrough("Warszawa", "Berlin", "Waszyngton", listOfFlights);
+        List<Cities> flightsThrough = flights.fligthsSearcherThrough("Warszawa","Berlin", "Waszyngton", listOfFlights);
         System.out.println(flightsFrom.size());
         System.out.println(flightsFrom.get(0));
         System.out.println(flightsFrom.get(1));
